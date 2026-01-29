@@ -494,9 +494,13 @@ if st.session_state.get("aguardando_resposta"):
                                 prompt_para_banco = pergunta_consolidada
                                 print(f"Pergunta consolidada pelo GPT: {prompt_para_banco}")
                             else:
-                                # Fallback: usa o contexto bruto concatenado
-                                prompt_para_banco = contexto_texto
-                                print("Usando contexto bruto (sem GPT)")
+                                # Fallback: usa apenas a última mensagem do usuário (limpo) em vez de todo histórico
+                                try:
+                                    prompt_para_banco = st.session_state.chat_history[-1]['mensagem']
+                                    print("Usando última pergunta do usuário (Fallback Limpo)")
+                                except:
+                                    prompt_para_banco = user_input # Garantia final
+                                    print("Usando user_input (Fallback Emergência)")
                             
                             print(f"Salvando query com contexto....")
                             # CORREÇÃO: Passar sql_extraido (limpo) em vez de resposta_ia (texto completo)
