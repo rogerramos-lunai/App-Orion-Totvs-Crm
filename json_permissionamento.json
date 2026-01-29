@@ -1,0 +1,24 @@
+{
+  "tabelas": {
+    "clientes": {
+      "column_blocks": ["telefone", "email"], 
+      "row_filters": [
+        { "field": "empresa_id", "op": "=", "values": [123] },
+        { "field": "data_cadastro", "op": ">=", "values": ["2025-01-01"] }
+      ]
+    },
+    "vendas": {
+      "column_blocks": ["valor_total"],
+      "row_filters": [
+        { "field": "filial", "op": "IN", "values": ["Filial1", "Filial3"] },
+        { "field": "situacao", "op": "!=", "values": ["CANCELADA"] }
+      ]
+    }
+  },
+  "metadata": {
+    "escopo": "perfil", 
+    "id_perfil": 2,
+    "ultima_atualizacao": "2025-09-18T00:00:00Z",
+    "autor": "admin"
+  }
+}

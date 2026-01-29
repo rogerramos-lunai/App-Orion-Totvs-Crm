@@ -1,0 +1,15 @@
+# Configurações de Ambiente (SEGURANÇA EXTREMA)
+.env
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.pytest_cache/
+
+# Gerados
+out_md_catalog/
+out_md_rag/
+*.log
