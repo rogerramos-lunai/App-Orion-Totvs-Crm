@@ -461,7 +461,7 @@ if st.session_state.get("aguardando_resposta"):
         
         st.write("🔍 Conectando ao assistente inteligente...")
         try:
-            resp = requests.post(WEBHOOK_URL, json=payload, timeout=60)
+            resp = requests.post(WEBHOOK_URL, json=payload, timeout=300)
             resp.raise_for_status()
             
             st.write("⚙️ Processando resposta...")
